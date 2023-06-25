@@ -56,6 +56,17 @@ class Factory{
         return a
     }
 
+    generate_cloud_gas(x, y, name, radius) {
+        const c = L.circle(
+            [x, y], {
+                radius: radius,
+                fillColor: "#808080",
+                color: "#808080"
+            }
+        )
+        return c
+    }
+
     // speed: unit per sec
     // generate_ship(x, y, name, speed) {
     //     const popup = `
