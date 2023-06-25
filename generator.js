@@ -79,27 +79,45 @@ class Factory{
     //     return s
     // }
 
-    // generate_system(x, y, planet_qtt, name) {
-    //     const sun = this.generate_sun(x,y, name, new MapManager().sun_radius)
-    //     let planets = []
-    //     for (let i = 1; i<=planet_qtt; i++) {
-    //         const dist = new MapManager().distance_from_object_with_orbit(
-    //             new MapManager().sun_radius,
-    //             i,
-    //             new MapManager().orbit_interval_len
-    //         )
-    //         let angle = Math.random()*Math.PI*2
-    //         let px = Math.cos(angle)*dist + x
-    //         let py = Math.sin(angle)*dist + y
-    //         let p = new Factory().generate_planet(
-    //             px, py, name + "-" + i, 1
-    //         )
-    //         console.log(px, py, dist)
-    //         planets.push(p)
-    //     }
-    //     return {
-    //         's': sun,
-    //         'p': planets
-    //     }
-    // }
+    generate_system(x, y, planet_qtt, name) {
+        const sun = this.generate_sun(x,y, name, new MapManager().sun_radius)
+        let planets = []
+        let asteroids = []
+        for (let i = 1; i<=planet_qtt; i++) {
+            const dist = new MapManager().distance_from_object_with_orbit(
+                new MapManager().sun_radius,
+                i,
+                new MapManager().orbit_interval_len
+            )
+            // Define a random angle
+            // determine the target position from the center of the system (sun)
+            // at a distance dist using generated angle
+            let angle = Math.random()*Math.PI*2
+            let px = Math.cos(angle)*dist + x
+            let py = Math.sin(angle)*dist + y
+            let p = new Factory().generate_planet(
+                px, py, name + "-" + i, new MapManager().planet_radius
+            )
+            planets.push(p)
+            if (Math.random() <= new MapManager().asteroid_probability_arround_planet) {
+                let dist = new MapManager().distance_from_object_with_orbit(
+                    new MapManager().planet_radius,
+                    1,
+                    new MapManager().asteroid_distance_from_planet
+                )
+                let angle = Math.random()*Math.PI*2
+                let ax = Math.cos(angle) * dist + px
+                let ay = Math.sin(angle) * dist + py
+                let a = new Factory().generate_asteroid(
+                    ax, ay, name +"-a-", new MapManager().asteroid_radius
+                )
+                asteroids.push(a)
+            }
+        }
+        return {
+            'sun': sun,
+            'planets': planets,
+            "asteroids": asteroids
+        }
+    }
 }

@@ -74,17 +74,8 @@
     <script src="utils.js"></script>
     <script src="keyboard.js"></script>
     <script>
-        const factory = new Factory()
-        let p = factory.generate_planet(100,100, "pone", 10)
-        let s = factory.generate_sun(200,200, "sun", 20)
-        let a = factory.generate_asteroid(150,150, "a", 1)
-        let c = factory.generate_cloud_gas(400,400, "a", 5)
-        const map = new MapManager()
-        map.add_to_map(p)
-        map.add_to_map(s)
-        map.add_to_map(a)
-        map.add_to_map(c)
-        console.log(c)
+        let system = new Factory().generate_system(500,500, 4, "sol")
+        new MapManager().add_system_to_map(system)
     </script>
 </body>
 

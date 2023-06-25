@@ -23,9 +23,30 @@ class MapManager {
     // ################################################### handle map stuff
     sun_radius = 10
     orbit_interval_len = 5
+    asteroid_probability_arround_planet = 0.2
+    asteroid_distance_from_planet = 2
+    asteroid_radius = 0.5
+
+    planet_radius = 1
 
     add_to_map(element) {
         element.addTo(map_manager.map)
+    }
+
+    /**
+     * Given an object representing a system, add to map every
+     * element of the system
+     * 
+     * @param {*} system An object with keys: "sun", "planets" (array), "asteroids" (array)
+     */
+    add_system_to_map(system) {
+        this.add_to_map(system.sun)
+        system.planets.forEach(planet => {
+            this.add_to_map(planet)
+        });
+        system.asteroids.forEach(asteroid => {
+            this.add_to_map(asteroid)
+        });
     }
 
     calculate_move_duration(src_latLng, dest_LatLng, speed) {
