@@ -1,0 +1,80 @@
+<html lang="en">
+<link type="text/css" rel="stylesheet" id="dark-mode-custom-link">
+<link type="text/css" rel="stylesheet" id="dark-mode-general-link">
+<style type="text/css" id="dark-mode-custom-style" lang="en"></style>
+<style type="text/css" id="dark-mode-native-style" lang="en"></style>
+
+<head>
+    <base target="_top">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Exploratron</title>
+
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
+
+        .leaflet-container {
+            height: 100%;
+            width: 100%;
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .float-container {
+            border: 1px solid #fff;
+        }
+
+        .float-child-left {
+            width: 70%;
+            float: left;
+            padding: 1px;
+        }
+        .float-child-right {
+            width: 20%;
+            float: left;
+            padding: 1px;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <div class="float-container">
+
+        <div class="float-child-left">
+            <div id="map"></div>
+        </div>
+
+        <div class="float-child-right">
+            <div>
+                <button>Settings</button>
+            </div>
+        </div>
+
+    </div>
+    </div>
+
+    <script src="map_manager.js"></script>
+    <!-- <script src="slide_to.js"></script>
+<script src="generator.js"></script>
+<script src="utils.js"></script>
+<script src="keyboard.js"></script> -->
+    <script>
+
+    </script>
+</body>
+
+</html>
