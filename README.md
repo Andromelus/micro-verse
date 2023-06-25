@@ -1,6 +1,7 @@
 - [Resources](#resources)
 
 # Resources
+- Ore: Minable from stars
 
 ```mermaid
 graph TD

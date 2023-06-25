@@ -17,7 +17,7 @@ class MapManager {
             }
             this.map.on("click", this.click_map)
         }
-        return this
+        return map_manager
     }
 
     // ################################################### handle map stuff

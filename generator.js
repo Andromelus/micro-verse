@@ -6,31 +6,19 @@ class Factory {
         if (factory_instance == null) {
             factory_instance = this
         }
-        return this
+        return factory_instance
     }
-
-    // generate_system(x, y, name, id, info=null) {
-    //     const m = L.marker(
-    //         [x, y],
-    //         {
-    //             icon: this.ss_icon,
-    //             title: name
-    //         }
-    //     )
-    //     const popup = `${name} (${x}:${y})<br><button onclick="location.href='/system/${id}'">visit</button>`
-    //     m.bindPopup(popup)
-    //     m["info"] = info
-    //     return m
-    // }
 
     generate_planet(x, y, name, radius) {
         const c = L.circle(
             [x, y], {
             radius: radius
-        }
+            }
         )
-        // x = x.toFixed(2)
-        // y = y.toFixed(2)
+        let ore = new OreFactory().get_random_ore("planets")
+        let ores = {}
+        ores[ore] = new  OreFactory().get_quantity()
+        c.ores = ores
         return c
     }
 
@@ -51,7 +39,7 @@ class Factory {
             radius: radius,
             fillColor: "black",
             color: "black"
-        }
+            }
         )
         return a
     }

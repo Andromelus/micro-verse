@@ -73,8 +73,11 @@
     <script src="generator.js"></script>
     <script src="utils.js"></script>
     <script src="keyboard.js"></script>
+    <script src="ores.js"></script>
     <script>
-        new Factory().generate_map(10)
+        let p = new Factory().generate_planet(500,500, "toto", 10)
+        console.log(p)
+        new MapManager().add_to_map(p)
     </script>
 </body>
 
