@@ -23,9 +23,9 @@ class MapManager {
     // ################################################### handle map stuff
     sun_radius = 10
     orbit_interval_len = 5
-    asteroid_probability_arround_planet = 0.2
+    asteroid_probability_arround_planet = 0.5
     asteroid_distance_from_planet = 2
-    asteroid_radius = 0.5
+    asteroid_radius = 0.1
 
     planet_radius = 1
 
