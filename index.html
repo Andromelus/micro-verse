@@ -40,6 +40,7 @@
             float: left;
             padding: 1px;
         }
+
         .float-child-right {
             width: 20%;
             float: left;
@@ -68,12 +69,19 @@
     </div>
 
     <script src="map_manager.js"></script>
-    <!-- <script src="slide_to.js"></script>
-<script src="generator.js"></script>
-<script src="utils.js"></script>
-<script src="keyboard.js"></script> -->
+    <script src="slide_to.js"></script>
+    <script src="generator.js"></script>
+    <script src="utils.js"></script>
+    <script src="keyboard.js"></script>
     <script>
-
+        const factory = new Factory()
+        let p = factory.generate_planet(100,100, "pone", 10)
+        let s = factory.generate_sun(200,200, "sun", 20)
+        let a = factory.generate_asteroid(150,150, "a", 1)
+        const map = new MapManager()
+        map.add_to_map(p)
+        map.add_to_map(s)
+        map.add_to_map(a)
     </script>
 </body>
 
