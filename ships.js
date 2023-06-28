@@ -48,7 +48,7 @@ class Freighter extends Ship {
 }
 
 class Builder extends Ship {
-    
+
 }
 
 class Explorer extends Ship {
@@ -61,15 +61,15 @@ class Explorer extends Ship {
         this.ship_type = "Explorer"
     }
 
-    analyse() {
+    explore() {
         this.speed = 0
         this.state = "Analysis"
         setTimeout(() => {
-            this.end_analyse()
+            this.end_explore()
         }, this.analysis_time)
     }
 
-    end_analyse() {
+    end_explore() {
         this.speed = this.original_speed
         this.state = "Idle"
     }
