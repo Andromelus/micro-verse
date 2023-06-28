@@ -4,10 +4,13 @@ function keydown(event) {
         map_manager.stop_selected_element()
     }
     // escape
-    if (event.keyCode == 27) {
+    else if (event.keyCode == 27) {
         map_manager.unselect()
     }
+    else {
+        console.log(event.keyCode)
+    }
+    
 }
-
 
 window.addEventListener("keydown", keydown, false)

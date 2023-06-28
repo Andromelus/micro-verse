@@ -16,6 +16,7 @@ class MapManager {
                 "ships": {}
             }
             this.map.on("click", this.click_map)
+            this.map.on("contextmenu", this.context_menu)
         }
         return map_manager
     }
@@ -108,7 +109,14 @@ class MapManager {
     }
 
     unselect() {
+        if (new MapManager().selected_element != null) {
+            new MapManager().selected_element.closePopup()
+        }
         map_manager.selected_element = null
+    }
+
+    context_menu(event) {
+        new MapManager().unselect()
     }
 }
 
