@@ -5,7 +5,7 @@ class Utils{
         if (utils_instance == null) {
             utils_instance = this
         } 
-        return this
+        return utils_instance
     }
 
     plus_or_minus() {

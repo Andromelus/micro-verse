@@ -56,16 +56,16 @@ class Factory {
     }
 
     // speed: unit per sec
-    // generate_ship(x, y, name, speed) {
-    //     const popup = `
-    //     ${name}
-    //     `
-    //     const s = L.marker([x, y])
-    //     s.speed = speed
-    //     s.bindPopup(popup)
-    //     s.on("click", new MapManager().click_ship)
-    //     return s
-    // }
+    generate_ship(x, y, name, speed) {
+        const popup = `
+        ${name}
+        `
+        const s = L.marker([x, y])
+        s.speed = speed
+        s.bindPopup(popup)
+        s.on("click", new MapManager().click_ship)
+        return s
+    }
 
     generate_system(x, y, planet_qtt, name) {
         const sun = this.generate_sun(x, y, name, new MapManager().sun_radius)
