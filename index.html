@@ -63,6 +63,7 @@
             <div>
                 <button>Settings</button>
             </div>
+            <div id="selection_info"></div>
         </div>
 
     </div>
@@ -75,12 +76,12 @@
     <script src="keyboard.js"></script>
     <script src="ores.js"></script>
     <script src="ships.js"></script>
+    <script src="info_panel.js"></script>
     <script>
         new Factory().generate_map()
-        let s = new Explorer(10)
+        let s = new Explorer("Explorer", 0, 10)
         let s_o = new Factory().generate_ship(500,500, "Toto", 10, s)
         new MapManager().add_to_map(s_o)
-        console.log(s_o)
     </script>
 </body>
 

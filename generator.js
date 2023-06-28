@@ -63,7 +63,7 @@ class Factory {
         const s = L.marker([x, y])
         s.speed = speed
         s.bindPopup(popup)
-        s.on("click", new MapManager().click_ship)
+        s.on("click", new MapManager().select)
         s.properties = ship_info
         return s
     }

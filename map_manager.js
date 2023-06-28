@@ -11,10 +11,6 @@ class MapManager {
             var bounds = [[0,0], [1000,1000]];
             L.imageOverlay('empty_map.png', bounds).addTo(this.map);
             this.map.fitBounds(bounds);
-            this.map_objects = {
-                "stars": {},
-                "ships": {}
-            }
             this.map.on("click", this.click_map)
             this.map.on("contextmenu", this.context_menu)
         }
@@ -81,8 +77,9 @@ class MapManager {
 
     // ################################################### handle context
     selected_element = null
-    click_ship(mouse_event) {
-        map_manager.selected_element = mouse_event.sourceTarget
+    select(mouse_event) {
+        new MapManager().selected_element = mouse_event.sourceTarget
+        new Panel().show_info(new MapManager().selected_element)
     }
 
 
@@ -98,7 +95,7 @@ class MapManager {
                 map_manager.selected_element.speed
             )
             map_manager.selected_element.slideTo([x, y], {duration: duration})
-            map_manager.selected_element = null
+            new MapManager().unselect()
         }
     }
 
@@ -113,6 +110,7 @@ class MapManager {
             new MapManager().selected_element.closePopup()
         }
         map_manager.selected_element = null
+        new Panel().clear_info()
     }
 
     context_menu(event) {

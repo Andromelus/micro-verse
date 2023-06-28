@@ -1,12 +1,18 @@
 class Ship {
     constructor(
+        name,
         freight = 0,
         speed = 10
     ) {
+        this.name = name
         this.freight = freight
         this.speed = speed
         this.state = "Idle"
         this.load_speed = 1 // per sec
+    }
+
+    stop() {
+        new MapManager().stop_selected_element()
     }
 
     analyse() {
@@ -52,8 +58,8 @@ class Builder extends Ship {
 }
 
 class Explorer extends Ship {
-    constructor(speed) {
-        super()
+    constructor(name, freight = 0, speed = 10) {
+        super(name, freight, speed)
         this.freight = 1
         this.speed = speed
         this.original_speed = this.speed
