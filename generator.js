@@ -56,14 +56,15 @@ class Factory {
     }
 
     // speed: unit per sec
-    generate_ship(x, y, name, speed) {
+    generate_ship(x, y, name, speed, ship_info) {
         const popup = `
-        ${name}
+        ${name} (${ship_info.ship_type})
         `
         const s = L.marker([x, y])
         s.speed = speed
         s.bindPopup(popup)
         s.on("click", new MapManager().click_ship)
+        s.properties = ship_info
         return s
     }
 

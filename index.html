@@ -74,10 +74,13 @@
     <script src="utils.js"></script>
     <script src="keyboard.js"></script>
     <script src="ores.js"></script>
+    <script src="ships.js"></script>
     <script>
         new Factory().generate_map()
-        let s = new Factory().generate_ship(500,500, "Toto", 10)
-        new MapManager().add_to_map(s)
+        let s = new Explorer(10)
+        let s_o = new Factory().generate_ship(500,500, "Toto", 10, s)
+        new MapManager().add_to_map(s_o)
+        console.log(s_o)
     </script>
 </body>
 
